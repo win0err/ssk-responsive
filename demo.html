@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>SSK Responsive</title>
+		<meta charset="utf-8" />
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+		<meta name="theme-color" content="#232323" />
+		<script type="text/javascript" src="ssk.responsive.min.js"></script>
+		<script type="text/javascript">
+			var Responsive = new SSKResponsive({
+				desktopWidth: 1200,                     
+				switcher: true
+			});
+		</script>
+		<style>
+			body {
+				margin: 0;
+				font-size: 14px;
+				font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+				background-color: #232323;
+			}
+			.container {
+				width: 100%;
+				height: 100%;
+			}
+			.logo {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 300px;
+			}
+			.logo__text {
+				font-size: 52px;
+				font-weight: bold;
+				color: #ffd143;
+				line-height: 1em;
+				padding-bottom: .15em;
+			}
+			.logo__action {
+				color: #c7c7c7;
+				font-style: italic;
+			}
+			.logo__action a {
+				text-decoration: none;
+				color: #c7c7c7;
+				border-bottom: 1px solid rgba(199,199,199,.3);
+			}
+			.ssk_responsive {
+				margin-top: .5em;
+			}
+			.line_age {
+				font-size: 2em;
+				font-size: 5vmin;
+				text-align: center;
+				color: rgba(255, 255, 255, .75);
+			}
+			.line_age--width {
+				margin-top: .5em;
+			}
+			.line_age--height {
+				position: absolute;
+				top: 50%;
+				right: 0;
+				transform: rotate(90deg);
+				transform-origin: 70% 110%;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="line_age line_age--width">← <span>∞</span>&thinsp;пикс. →</div>
+		<div class="line_age line_age--height">← <span>∞</span>&thinsp;пикс. →</div>
+		<div class="container">
+			<div class="logo">
+				<div class="logo__text">SSK <br />Responsive</div>
+				<span class="logo__action">
+					<a href="#" class="ssk_responsive">Переключить версию</a>
+				</span>
+			</div>
+		</div>
+		<script type="text/javascript">
+			if(!Responsive.canToggle()) document.querySelector(".logo__action").innerHTML = 
+				"Вы запросили полную версию сайта в мобильном браузере или просто открыли страницу на компьютере";
+
+			document.querySelector(".line_age--width > span").innerHTML = document.documentElement.clientWidth;
+			document.querySelector(".line_age--height > span").innerHTML = document.documentElement.clientHeight;
+
+			
+			window.onresize = function(event) {
+			    document.querySelector(".line_age--width > span").innerHTML = document.documentElement.clientWidth;
+				document.querySelector(".line_age--height > span").innerHTML = document.documentElement.clientHeight;
+			};
+		</script>
+	</body>
+</html>

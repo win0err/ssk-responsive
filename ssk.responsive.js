@@ -33,6 +33,12 @@ function SSKResponsive(settings) {
     // Если можно переключать на десктопную
     if(!this.canToggle()) localStorage.isResponsive = 'false';
 
+
+    // Если нет мета-вьюпорта, создаём
+    if(document.querySelector("meta[name=viewport]") == null)
+        document.getElementsByTagName('head')[0].innerHTML += '<meta content="width=device-width, initial-scale=1" name="viewport" />';
+
+
     // Если десктопная версия (localStorage.isResponsive == 'false',
     // в мета-тег вьюпорт ставим ширину из настроек    
     if(localStorage.isResponsive == 'false') { 
