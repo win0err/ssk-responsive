@@ -1,7 +1,7 @@
-#SSK Responsive
+# SSK Responsive
 Помогает переключаться между мобильной и десктопной версиями сайта. 
 
-##Использование
+## Использование
 Для начала, скачайте [ssk.responsive.min.js](https://raw.githubusercontent.com/win0err/ssk-responsive/master/ssk.responsive.min.js).
 
 В секции `<head>` подключите скрипт и инициализируйте его:
@@ -12,7 +12,7 @@
 </script>
 ```
 
-##Конфигурация
+## Конфигурация
 Настройки по умолчанию:
 ```js
 var Responsive = new SSKResponsive({
@@ -28,7 +28,3 @@ var Responsive = new SSKResponsive({
 	switcherSelector: '.ssk_responsive'
 });
 ```
-
---
-Разработал [Сергей Колесников](http://iamawesomeguy.ru/projects/ssk-responsive/).
-Используется в [ССК](http://ssk.moscow)
